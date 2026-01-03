@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Web Page</title>
+  </head>
+  <body>
+    <style>
+
+          body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #c8d336;
+      padding: 40px;
+      font-size: 25px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    /*  Normal button style */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+      /*  When mouse hovers */
+    button:hover {
+      background-color: red;
+      transform: scale(1.1);
+    }
+
+    /*  When button is clicked */
+    button:active {
+      background-color: #2225c4;
+      transform: scale(0.95);
+    }
+     /* Input box style */
+    input {
+      padding: 10px;
+      border: 2px solid gray;
+      border-radius: 5px;
+      width: 250px;
+      margin-top: 20px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+
+     /* When typing inside the box */
+    input:focus {
+      border-color: #2196F3;
+      background-color: aqua;
+      box-shadow: 0 0 8px #2196F3;
+      outline: none;
+    }
+
+    </style>
+     
+  <h1> CSS Pseudo-Classes Demo</h1>
+
+  <p>Move your mouse, click the button, and type in the box!</p>
+
+  <button>Click or Hover Me</button>
+  <br><br>
+
+  <input type="text" placeholder="Click here to type...">
+  </body>
+</html>

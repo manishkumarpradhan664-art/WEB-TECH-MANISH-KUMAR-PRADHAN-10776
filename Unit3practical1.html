@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <title>Arithmetic calculator</title>
+    <style>
+        body{
+            background-color: azure;
+        }
+        input{
+            background-color: bisque;
+            color: rgb(36, 35, 34);
+        }
+        button{
+            background-color: black;
+            color: white;
+        }
+    </style>
+<body>
+<h3>Arithmetic Operations</h3>
+<input id="a" type="number" placeholder="First number"><br><br>
+<input id="b" type="number" placeholder="Second number"><br><br>
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('')"></button>
+<button onclick="calc('/')">/</button>
+<p id="out">Result: </p>
+<script>
+function calc(op){
+    let x = Number(document.getElementById("a").value);
+    let y = Number(document.getElementById("b").value);
+
+    if(op === '/' && y === 0){
+        document.getElementById("out").innerText = "Result: Cannot divide by zero";
+    } else {
+        document.getElementById("out").innerText = "Result: " + eval(x + op + y);
+    }
+}
+</script>
+</body>
+</html>

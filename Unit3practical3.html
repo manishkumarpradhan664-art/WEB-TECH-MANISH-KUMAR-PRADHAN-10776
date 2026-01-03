@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Functions and Scope</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            padding: 30px;
+        }
+
+        .box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            width: 380px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+            border-left: 6px solid #ff6f61;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            font-size: 28px;
+        }
+
+        .title {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #ff6f61;
+            font-size: 18px;
+        }
+
+        .result {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>JavaScript Functions and Scope</h2>
+
+<div class="box">
+
+<script>
+function greet() {
+    document.write("<span class='result'>Hello! This is a user-defined function.</span><br><br>");
+}
+greet();
+
+function addNumbers(a, b) {
+    let result = a + b;
+    document.write("<span class='result'>Sum of " + a + " and " + b + " is: " + result + "</span><br><br>");
+}
+addNumbers(5, 3);
+
+document.write("<div class='title'>Scope Demonstration:</div>");
+
+var x = 10;
+document.write("<span class='result'>var x = " + x + "</span><br>");
+
+{
+    let y = 20;
+    document.write("<span class='result'>let y inside block = " + y + "</span><br>");
+}
+
+const z = 30;
+document.write("<span class='result'>const z = " + z + "</span><br>");
+</script>
+
+</div>
+
+</body>
+</html>

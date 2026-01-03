@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manish kumar</title>
+
+    <style>
+        /* 1. Universal selector */
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 2. ID selector */
+        #main-header {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* 3. Class selector */
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 4. Descendant selector */
+        .about p {
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        /* 5. Group selector */
+        h2, h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #f7f9f9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ID selector -->
+    <header id="main-header">
+        <h1>Hi, I'm MANISH KUMAR PRADHAN!</h1>
+    </header>
+
+    <!-- Class selector + Descendant selector -->
+    <section class="about">
+        <h2>About Me</h2>
+        <p>
+            I am passionate about web development. I love coding and building projects. Some of my favorite topics are 
+            <span class="highlight">HTML</span>, <span class="highlight">CSS</span>, and <span class="highlight">JavaScript</span>.
+        </p>
+    </section>
+
+    <!-- Group selector -->
+    <section class="skills">
+        <h2>Skills</h2>
+        <h3>Front-End:</h3>
+        <p class="highlight">HTML, CSS, JavaScript, Responsive Design</p>
+        <h3>Other Skills:</h3>
+        <p>Version Control, GitHub, Basic Node.js</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Thank-you Everyone.</p>
+    </footer>
+</body>
+</html>

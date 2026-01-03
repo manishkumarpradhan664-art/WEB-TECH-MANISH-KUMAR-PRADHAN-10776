@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation Demo</title>
+  <style>
+    body{
+        background-color: rgb(246, 205, 247);
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-title">Original Title</h1>
+  <p class="description">Rungta Group of institute.</p>
+  <p class="description">Situated in Chhatisgarh.</p>
+  <button onclick="changeContent()">Click Me!</button>
+<script>
+    function changeContent() {
+       title = document.getElementById("main-title");
+      title.innerHTML = "Updated Title using getElementById()";
+      let firstPara = document.querySelector(".description");
+      firstPara.innerHTML = "Rungta international skills university";
+       let button = document.querySelector("button");
+      button.innerHTML = "Content change !";
+    }
+  </script>
+</body>
+</html>--

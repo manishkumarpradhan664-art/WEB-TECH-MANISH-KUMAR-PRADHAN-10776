@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Table Layout — Merged Cells, Alignment & Caption</title>
+</head>
+<body>
+  <h1>Table Layout Example</h1>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <caption><strong>Monthly Team Task Overview</strong></caption>
+    <tr>
+      <th colspan="4" align="center">Team Tasks — March 2025</th>
+    </tr>
+    <tr>
+      <th align="left">Team</th>
+      <th align="center">Planned</th>
+      <th align="center">In Progress</th>
+      <th align="right">Completed</th>
+    </tr>
+     <tr>
+      <td rowspan="2">Frontend</td>
+      <td align="center">Design mockups</td>
+      <td align="center">Landing page</td>
+      <td align="right">Hero section</td>
+    </tr>
+    <tr>
+     <td align="center">Accessibility fixes</td>
+      <td align="center">Forms</td>
+      <td align="right">Buttons</td>
+    </tr>
+    <tr>
+      <td>Backend</td>
+      <td colspan="2" align="center">API development (auth, users)</td>
+      <td align="right">Database setup</td>
+    </tr>
+    <tr>
+      <td>QA</td>
+      <td align="center">Test cases</td>
+      <td align="center">Regression</td>
+      <td align="right">Bug fixes</td>
+    </tr>
+    <tr>
+      <td colspan="4" align="center">Note: Review meeting every Friday at 10:00 AM</td>
+    </tr>
+  </table>
+
+  <p><em>End of example — shows caption, colspan, rowspan, and different alignment options using HTML table attributes.</em></p>
+</body>
+</html>

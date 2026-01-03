@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Short Events Demo</title>
+</head>
+<body>
+  <form id="myForm">
+    Name: 
+    <input type="text" id="name"
+           oninput="this.style.border = this.value.length<3?'2px solid red':'2px solid green'"
+           onfocus="this.style.background='lightyellow'"
+           onblur="this.style.background='white'">
+    <br><br>
+
+    Email: <input type="text" id="email"><br><br>
+
+    <select onchange="alert('Selected: ' + this.value)">
+      <option value="">--Select course--</option>
+      <option>Btech</option>
+      <option>Bca</option>
+    </select><br><br>
+
+    <button type="button" onclick="alert('Extra button clicked!')">Click Me</button>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">
+    
+  </div>
+
+  <script>
+    document.getElementById("myForm").onsubmit = function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      if(name.length<3){ alert("Name too short!"); return; }
+      if(!email.includes("@")){ alert("Invalid email!"); return; }
+      alert("Form submitted successfully!");
+    };
+  </script>
+</body>
+</html>
