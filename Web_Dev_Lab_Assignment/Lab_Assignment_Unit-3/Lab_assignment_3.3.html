@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM, innerText & innerHTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .box {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 6px solid #3498db;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 8px 15px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .output {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        code {
+            background: #ecf0f1;
+            padding: 3px 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Document Object Model (DOM)</h1>
+
+<div class="box">
+    <h2>What is DOM?</h2>
+    <p>
+        The <strong>Document Object Model (DOM)</strong> is a programming interface
+        that represents an HTML document as a <strong>tree of objects</strong>.
+        JavaScript uses the DOM to <strong>access, modify, add, or delete</strong>
+        HTML elements dynamically.
+    </p>
+</div>
+
+<div class="box">
+    <h2>Selecting Elements</h2>
+    <p id="para1">This paragraph is selected using <code>getElementById()</code>.</p>
+    <p class="para2">This paragraph is selected using <code>querySelector()</code>.</p>
+
+    <pre>
+document.getElementById("para1");
+document.querySelector(".para2");
+    </pre>
+</div>
+
+<div class="box">
+    <h2>Using innerText</h2>
+    <p id="textDemo">Original Text</p>
+    <button onclick="changeText()">Change innerText</button>
+    <p class="output" id="textResult"></p>
+</div>
+
+<div class="box">
+    <h2>Using innerHTML</h2>
+    <p id="htmlDemo">Original Content</p>
+    <button onclick="changeHTML()">Change innerHTML</button>
+    <p class="output" id="htmlResult"></p>
+</div>
+
+<script>
+    // Selecting elements
+    const para1 = document.getElementById("para1");
+    const para2 = document.querySelector(".para2");
+
+    para1.style.color = "green";
+    para2.style.color = "purple";
+
+    // innerText example
+    function changeText() {
+        document.getElementById("textDemo").innerText =
+            "This text is changed using innerText";
+        document.getElementById("textResult").innerText =
+            "innerText changes only text, HTML tags are ignored.";
+    }
+
+    // innerHTML example
+    function changeHTML() {
+        document.getElementById("htmlDemo").innerHTML =
+            "<strong>Bold Text</strong> and <em>Italic Text</em> added using innerHTML";
+        document.getElementById("htmlResult").innerText =
+            "innerHTML can insert HTML tags and structure.";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var vs let vs const (Scope & Hoisting)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .box {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        .result {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Difference Between var, let, and const</h1>
+
+<div class="box">
+    <h2>1. Scope Difference</h2>
+    <p><strong>var</strong> → Function Scope</p>
+    <p><strong>let & const</strong> → Block Scope</p>
+
+    <pre>
+function testScope() {
+    if (true) {
+        var a = "I am var";
+        let b = "I am let";
+        const c = "I am const";
+    }
+    console.log(a); // Works
+    console.log(b); // Error
+    console.log(c); // Error
+}
+testScope();
+    </pre>
+
+    <p class="result" id="scopeResult"></p>
+</div>
+
+<div class="box">
+    <h2>2. Hoisting Difference</h2>
+    <p><strong>var</strong> is hoisted and initialized as <code>undefined</code></p>
+    <p><strong>let & const</strong> are hoisted but in the <em>Temporal Dead Zone</em></p>
+
+    <pre>
+console.log(x); // undefined
+var x = 10;
+
+console.log(y); // Error
+let y = 20;
+
+console.log(z); // Error
+const z = 30;
+    </pre>
+
+    <p class="result" id="hoistResult"></p>
+</div>
+
+<div class="box">
+    <h2>3. Re-declaration & Re-assignment</h2>
+    <pre>
+var p = 1;
+var p = 2; // Allowed
+
+let q = 3;
+let q = 4; // Error
+
+const r = 5;
+r = 6; // Error
+    </pre>
+
+    <p class="result" id="redeclareResult"></p>
+</div>
+
+<script>
+    // Scope demonstration
+    function testScope() {
+        if (true) {
+            var a = "var is accessible outside block";
+            let b = "let is block scoped";
+            const c = "const is block scoped";
+        }
+        return a;
+    }
+
+    document.getElementById("scopeResult").innerText =
+        "Scope Result: " + testScope();
+
+    // Hoisting demonstration
+    var hoistText = "";
+    hoistText += "var hoisting → " + x + " | ";
+    var x = 10;
+
+    document.getElementById("hoistResult").innerText =
+        "Hoisting Result: var works, let/const throw error if accessed before declaration.";
+
+    // Redeclaration info
+    document.getElementById("redeclareResult").innerText =
+        "Redeclaration Result: var allows redeclare, let & const do not.";
+</script>
+
+</body>
+</html>

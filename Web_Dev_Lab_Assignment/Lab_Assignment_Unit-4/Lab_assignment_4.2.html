@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises & Async/Await in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .box {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 6px solid #9b59b6;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 8px 15px;
+            background: #9b59b6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #8e44ad;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+        }
+        .output {
+            color: #c0392b;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Promises and Async/Await</h1>
+
+<div class="box">
+    <h2>What is a Promise?</h2>
+    <p>
+        A <strong>Promise</strong> represents a value that will be available
+        <strong>in the future</strong>. It can be in one of three states:
+    </p>
+    <ul>
+        <li><strong>Pending</strong> – operation not completed</li>
+        <li><strong>Fulfilled</strong> – operation successful</li>
+        <li><strong>Rejected</strong> – operation failed</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>Promise Example (then / catch)</h2>
+    <pre>
+let promise = new Promise((resolve, reject) => {
+    resolve("Data received");
+});
+    </pre>
+    <button onclick="runPromise()">Run Promise</button>
+    <p class="output" id="promiseOutput"></p>
+</div>
+
+<div class="box">
+    <h2>Async / Await Example</h2>
+    <p>
+        <strong>async/await</strong> makes asynchronous code look and behave
+        like synchronous code, improving readability.
+    </p>
+    <pre>
+async function getData() {
+    let result = await promise;
+    console.log(result);
+}
+    </pre>
+    <button onclick="runAsync()">Run Async/Await</button>
+    <p class="output" id="asyncOutput"></p>
+</div>
+
+<script>
+    // Creating a Promise
+    function createPromise() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Promise resolved successfully!");
+            }, 1500);
+        });
+    }
+
+    // Using Promise with then()
+    function runPromise() {
+        document.getElementById("promiseOutput").innerText = "Loading...";
+        createPromise()
+            .then(result => {
+                document.getElementById("promiseOutput").innerText = result;
+            })
+            .catch(error => {
+                document.getElementById("promiseOutput").innerText = error;
+            });
+    }
+
+    // Using async/await
+    async function runAsync() {
+        document.getElementById("asyncOutput").innerText = "Loading...";
+        try {
+            let result = await createPromise();
+            document.getElementById("asyncOutput").innerText = result;
+        } catch (error) {
+            document.getElementById("asyncOutput").innerText = error;
+        }
+    }
+</script>
+
+</body>
+</html>

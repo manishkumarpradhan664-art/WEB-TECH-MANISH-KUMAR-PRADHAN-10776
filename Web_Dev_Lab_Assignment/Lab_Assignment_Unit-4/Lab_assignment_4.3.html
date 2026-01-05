@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Delegation & addEventListener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .box {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 6px solid #16a085;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 8px 14px;
+            margin: 5px;
+            background: #16a085;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #13856b;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            background: #ecf0f1;
+            padding: 8px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .output {
+            color: #c0392b;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Event Delegation & addEventListener</h1>
+
+<div class="box">
+    <h2>What is Event Delegation?</h2>
+    <p>
+        <strong>Event Delegation</strong> is a technique where a <strong>single
+        event listener</strong> is added to a <strong>parent element</strong>
+        instead of adding listeners to multiple child elements.
+    </p>
+    <p>
+        It works because events <strong>bubble up</strong> from child to parent.
+    </p>
+</div>
+
+<div class="box">
+    <h2>Direct Event Handling (Without Delegation)</h2>
+    <button id="btn1">Button 1</button>
+    <button id="btn2">Button 2</button>
+
+    <p class="output" id="directOutput"></p>
+</div>
+
+<div class="box">
+    <h2>Event Delegation Example</h2>
+    <p>Click any list item:</p>
+    <ul id="itemList">
+        <li data-item="Item 1">Item 1</li>
+        <li data-item="Item 2">Item 2</li>
+        <li data-item="Item 3">Item 3</li>
+    </ul>
+
+    <button onclick="addItem()">Add New Item</button>
+
+    <p class="output" id="delegateOutput"></p>
+</div>
+
+<div class="box">
+    <h2>addEventListener() Syntax</h2>
+    <pre>
+element.addEventListener("event", function, useCapture);
+    </pre>
+</div>
+
+<script>
+    // Direct event handling
+    document.getElementById("btn1").addEventListener("click", function () {
+        document.getElementById("directOutput").innerText =
+            "Button 1 clicked (direct listener)";
+    });
+
+    document.getElementById("btn2").addEventListener("click", function () {
+        document.getElementById("directOutput").innerText =
+            "Button 2 clicked (direct listener)";
+    });
+
+    // Event Delegation
+    document.getElementById("itemList").addEventListener("click", function (event) {
+        if (event.target.tagName === "LI") {
+            document.getElementById("delegateOutput").innerText =
+                event.target.getAttribute("data-item") + " clicked (delegated event)";
+        }
+    });
+
+    // Dynamically add new list item
+    function addItem() {
+        const ul = document.getElementById("itemList");
+        const li = document.createElement("li");
+        li.textContent = "New Item";
+        li.setAttribute("data-item", "New Item");
+        ul.appendChild(li);
+    }
+</script>
+</body>
+</html>

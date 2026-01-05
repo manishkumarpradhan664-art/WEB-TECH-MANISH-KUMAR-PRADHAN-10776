@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Array Methods Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f3f7;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .box {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 6px solid #e67e22;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 8px 14px;
+            margin: 5px 0;
+            background: #e67e22;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #d35400;
+        }
+        .output {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Array Methods</h1>
+
+<div class="box">
+    <h2>Initial Array</h2>
+    <pre id="arrayDisplay"></pre>
+</div>
+
+<div class="box">
+    <h2>push() – Add element at the END</h2>
+    <button onclick="usePush()">Push 'Orange'</button>
+    <p class="output" id="pushResult"></p>
+</div>
+
+<div class="box">
+    <h2>pop() – Remove element from the END</h2>
+    <button onclick="usePop()">Pop element</button>
+    <p class="output" id="popResult"></p>
+</div>
+
+<div class="box">
+    <h2>unshift() – Add element at the START</h2>
+    <button onclick="useUnshift()">Unshift 'Grapes'</button>
+    <p class="output" id="unshiftResult"></p>
+</div>
+
+<div class="box">
+    <h2>shift() – Remove element from the START</h2>
+    <button onclick="useShift()">Shift element</button>
+    <p class="output" id="shiftResult"></p>
+</div>
+
+<script>
+    let fruits = ["Apple", "Banana", "Mango"];
+
+    function displayArray() {
+        document.getElementById("arrayDisplay").innerText =
+            "fruits = [ " + fruits.join(", ") + " ]";
+    }
+
+    displayArray();
+
+    function usePush() {
+        fruits.push("Orange");
+        displayArray();
+        document.getElementById("pushResult").innerText =
+            "push(): 'Orange' added to the end of the array.";
+    }
+
+    function usePop() {
+        let removed = fruits.pop();
+        displayArray();
+        document.getElementById("popResult").innerText =
+            "pop(): '" + removed + "' removed from the end of the array.";
+    }
+
+    function useUnshift() {
+        fruits.unshift("Grapes");
+        displayArray();
+        document.getElementById("unshiftResult").innerText =
+            "unshift(): 'Grapes' added to the beginning of the array.";
+    }
+
+    function useShift() {
+        let removed = fruits.shift();
+        displayArray();
+        document.getElementById("shiftResult").innerText =
+            "shift(): '" + removed + "' removed from the beginning of the array.";
+    }
+</script>
+
+</body>
+</html>

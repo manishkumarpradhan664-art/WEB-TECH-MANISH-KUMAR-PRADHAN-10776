@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Control Flow Statements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .card {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 6px solid #27ae60;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #1e1e1e;
+            color: #dcdcdc;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        .output {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Control Flow Statements</h1>
+
+<div class="card">
+    <h2>1. if / else Statement</h2>
+    <pre>
+let age = 18;
+
+if (age >= 18) {
+    result = "Eligible to vote";
+} else {
+    result = "Not eligible to vote";
+}
+    </pre>
+    <p class="output" id="ifElseOutput"></p>
+</div>
+
+<div class="card">
+    <h2>2. switch Statement</h2>
+    <pre>
+let day = 2;
+
+switch(day) {
+    case 1: text = "Monday"; break;
+    case 2: text = "Tuesday"; break;
+    default: text = "Invalid day";
+}
+    </pre>
+    <p class="output" id="switchOutput"></p>
+</div>
+
+<div class="card">
+    <h2>3. for Loop</h2>
+    <p><strong>Best when number of iterations is known</strong></p>
+    <pre>
+for (let i = 1; i <= 5; i++) {
+    print(i);
+}
+    </pre>
+    <p class="output" id="forOutput"></p>
+</div>
+
+<div class="card">
+    <h2>4. while Loop</h2>
+    <p><strong>Condition checked before execution</strong></p>
+    <pre>
+let i = 1;
+while (i <= 5) {
+    print(i);
+    i++;
+}
+    </pre>
+    <p class="output" id="whileOutput"></p>
+</div>
+
+<div class="card">
+    <h2>5. do...while Loop</h2>
+    <p><strong>Executes at least once (condition checked after)</strong></p>
+    <pre>
+let i = 1;
+do {
+    print(i);
+    i++;
+} while (i <= 5);
+    </pre>
+    <p class="output" id="doWhileOutput"></p>
+</div>
+
+<script>
+    // if else
+    let age = 18;
+    document.getElementById("ifElseOutput").innerText =
+        "Output: " + (age >= 18 ? "Eligible to vote" : "Not eligible");
+
+    // switch
+    let day = 2;
+    let text;
+    switch(day) {
+        case 1: text = "Monday"; break;
+        case 2: text = "Tuesday"; break;
+        default: text = "Invalid day";
+    }
+    document.getElementById("switchOutput").innerText =
+        "Output: " + text;
+
+    // for loop
+    let forResult = "";
+    for (let i = 1; i <= 5; i++) {
+        forResult += i + " ";
+    }
+    document.getElementById("forOutput").innerText =
+        "Output: " + forResult;
+
+    // while loop
+    let whileResult = "";
+    let j = 1;
+    while (j <= 5) {
+        whileResult += j + " ";
+        j++;
+    }
+    document.getElementById("whileOutput").innerText =
+        "Output: " + whileResult;
+
+    // do while loop
+    let doWhileResult = "";
+    let k = 1;
+    do {
+        doWhileResult += k + " ";
+        k++;
+    } while (k <= 5);
+    document.getElementById("doWhileOutput").innerText =
+        "Output: " + doWhileResult;
+</script>
+
+</body>
+</html>
